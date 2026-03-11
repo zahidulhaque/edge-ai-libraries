@@ -191,7 +191,7 @@ helm install vss . -f summary_override.yaml -f xeon_vllm_values.yaml -f user_val
   - Automatic disabling of the VLM Inference Microservice (`vlminference.enabled=false`)
 
 **Prerequisites for vLLM:**
-- Ensure your Kubernetes node has sufficient CPU resources (minimum 48 CPUs recommended)
+- Ensure your Kubernetes node has sufficient CPU resources (minimum 96 logical cores recommended)
 - The vLLM container requires at least 128Gi of memory for typical LLM models
 - Cache storage must be configured (default 80Gi PVC for model cache)
 
@@ -307,7 +307,7 @@ helm install vss . -f summary_override.yaml -f user_values_override.yaml -f ovms
 For updating storage for vLLM in Video Summarization mode with vLLM backend :
 
 ```bash
-helm install vss . -f summary_override.yaml -f xeon_vllm_values.yaml -f user_values_override.yaml --set vllm.pvc.size=10Gi -n $my_namespace
+helm install vss . -f summary_override.yaml -f xeon_vllm_values.yaml -f user_values_override.yaml --set vllm.pvc.size=100Gi -n $my_namespace
 ```
 
 Let's look at one more example, for updating storage for Minio Server in the combined Video Search and Summarization mode :
