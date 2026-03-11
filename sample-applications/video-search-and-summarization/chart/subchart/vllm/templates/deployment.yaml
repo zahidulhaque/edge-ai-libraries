@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deployment.name }}
+  name: {{ include "vllm.fullname" . }}
   labels:
-    app: {{ .Values.deployment.name }}
+    app: {{ include "vllm.fullname" . }}
     {{- include "vllm.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.deployment.name }}
+      app: {{ include "vllm.fullname" . }}
   template:
     metadata:
       labels:
-        app: {{ .Values.deployment.name }}
+        app: {{ include "vllm.fullname" . }}
         {{- include "vllm.labels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ .Values.serviceAccountName }}

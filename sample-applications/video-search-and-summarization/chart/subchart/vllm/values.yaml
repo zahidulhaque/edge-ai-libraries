@@ -2,7 +2,6 @@ nameOverride: ""
 fullnameOverride: ""
 
 deployment:
-  name: vllm-service
   replicaCount: 1
 
 image:

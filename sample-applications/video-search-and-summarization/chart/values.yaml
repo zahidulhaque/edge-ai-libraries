@@ -158,8 +158,8 @@ vllm:
   enabled: false
   service:
     name: cpu-vllm-service
+    type: ClusterIP
     port: 80
-  apiPath: "/v1"
 
 # Add nginx configuration
 nginx:

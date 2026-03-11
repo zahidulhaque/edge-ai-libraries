@@ -138,7 +138,7 @@ spec:
             - name: LLM_SUMMARIZATION_KEY
               value: "{{ .Values.pipelinemanager.env.LLM_SUMMARIZATION_KEY }}"
             - name: LLM_SUMMARIZATION_API
-              value: {{ if .Values.ovms.enabled }}{{ printf "http://%s:8300/v3" .Values.ovms.name | quote }}{{ else if .Values.vllm.enabled }}{{ printf "http://%s:%d%s" (default "cpu-vllm-service" .Values.vllm.service.name) (default 80 .Values.vllm.service.port | int) (default "/v1" .Values.vllm.apiPath) | quote }}{{ else }}{{ .Values.pipelinemanager.env.LLM_SUMMARIZATION_API | default (printf "http://%s:8000/v1" .Values.vlminference.name) | quote }}{{ end }}
+              value: {{ if .Values.ovms.enabled }}{{ printf "http://%s:8300/v3" .Values.ovms.name | quote }}{{ else if .Values.vllm.enabled }}{{ printf "http://%s:%d/v1" (default "cpu-vllm-service" .Values.vllm.service.name) (default 80 .Values.vllm.service.port | int) | quote }}{{ else }}{{ .Values.pipelinemanager.env.LLM_SUMMARIZATION_API | default (printf "http://%s:8000/v1" .Values.vlminference.name) | quote }}{{ end }}
             - name: LLM_SUMMARIZATION_DEVICE
               value: "{{ if .Values.global.gpu.ovmsEnabled }}GPU{{ else }}{{ .Values.pipelinemanager.env.LLM_SUMMARIZATION_DEVICE }}{{ end }}"
             - name: LLM_MODEL_NAME
@@ -146,7 +146,7 @@ spec:
             - name: VLM_CAPTIONING_KEY
               value: "{{ .Values.pipelinemanager.env.VLM_CAPTIONING_KEY }}"
             - name: VLM_CAPTIONING_API
-              value: {{ if .Values.vllm.enabled }}{{ printf "http://%s:%d%s" (default "cpu-vllm-service" .Values.vllm.service.name) (default 80 .Values.vllm.service.port | int) (default "/v1" .Values.vllm.apiPath) | quote }}{{ else }}{{ printf "http://%s:8000/v1" .Values.vlminference.name | quote }}{{ end }}
+              value: {{ if .Values.vllm.enabled }}{{ printf "http://%s:%d/v1" (default "cpu-vllm-service" .Values.vllm.service.name) (default 80 .Values.vllm.service.port | int) | quote }}{{ else }}{{ printf "http://%s:8000/v1" .Values.vlminference.name | quote }}{{ end }}
             - name: VLM_CAPTIONING_DEVICE
               value: "{{ if .Values.global.gpu.vlminferenceEnabled }}GPU{{ else }}{{ .Values.pipelinemanager.env.VLM_CAPTIONING_DEVICE }}{{ end }}"
             - name: VLM_MODEL_NAME
