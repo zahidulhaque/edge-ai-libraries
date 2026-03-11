@@ -103,9 +103,6 @@ Update or edit the values in YAML file as follows:
 | `global.gpu.key` | Label assigned to the GPU node on kubernetes cluster by the device plugin example- gpu.intel.com/i915, gpu.intel.com/xe. Identify by running kubectl describe node | Your cluster GPU node key |
 | `global.gpu.device` | Set to `GPU` if need to deploy the inference workload on GPU device | GPU |
 | `vllm.enabled` | Enable vLLM as the LLM inference backend (alternative to VLM Microservice or OVMS) | `true` or `false` |
-| `vllm.service.name` | Kubernetes service name for vLLM service | `cpu-vllm-service` |
-| `vllm.service.port` | Port on which vLLM service listens | `80` |
-| `vllm.apiPath` | API path for vLLM OpenAI-compatible endpoint | `/v1` |
 | `videoingestion.odModelName` | Name of object detection model used during video ingestion | `yolov8l-worldv2` |
 | `videoingestion.odModelType` | Type/Category of the object detection Model | `yolo_v8` |
 | `vsscollector.enabled` | Enable the telemetry collector sidecar (telegraf-based) | `true` or `false` |
