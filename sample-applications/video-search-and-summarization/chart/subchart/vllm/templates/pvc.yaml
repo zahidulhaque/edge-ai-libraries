@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ .Values.pvc.name }}
   labels:
-    app: {{ .Values.deployment.name }}
+    app: {{ include "vllm.fullname" . }}
     {{- include "vllm.labels" . | nindent 4 }}
 spec:
   accessModes:
