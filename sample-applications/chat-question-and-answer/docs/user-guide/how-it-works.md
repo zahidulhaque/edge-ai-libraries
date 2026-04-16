@@ -1,10 +1,10 @@
 # How It Works
 
-The Chat Question & Answer (Chat Q&A) Sample Application is a RAG based chatbot pipeline that allows developers to customize and deploy the sample application in an on-prem environment and on their private documents without compromising on the accuracy of the responses. The application is built on a modular microservices approach using popular [LangChain framework](https://www.langchain.com/). This page provides a technical overview of the application’s architecture, components, and extensibility.
+The Chat Question & Answer (Chat Q&A) sample application is a RAG based chatbot pipeline that allows developers to customize and deploy the sample application in an on-prem environment and on their private documents without compromising on the accuracy of the responses. The application is built on a modular microservices approach using popular [LangChain framework](https://www.langchain.com/). This page provides a technical overview of the application’s architecture, components, and extensibility.
 
 ## Purpose
 
-The Chat Q&A Sample Application is designed to:
+The Chat Q&A sample application is designed to:
 
 - Demonstrate how Intel Edge AI catalog of inference microservices can be used to quickly build and deploy on Intel Edge AI systems portfolio.
 - Serve as a blueprint for building similar scalable and modular solutions that can be deployed on Intel Edge AI systems.
@@ -19,7 +19,7 @@ The Chat Q&A application is a combination of the core LangChain application logi
 ### Technical Architecture Diagram
 
 ![Technical Architecture Diagram](./_assets/TEAI_ChatQnA_Arch.png)
-**Figure 1**: Detailed Architecture of the Chat Q&A Sample Application
+**Figure 1**: Detailed Architecture of the Chat Q&A sample application
 
 ### Application Flow
 
@@ -68,7 +68,7 @@ The application flow is illustrated in the flow diagram below. The diagram shows
    - **Benefits**: The core part of the document ingestion microservice is the vector handling capability which is optimized for target deployment hardware. Selection of the vectorDB is based on performance considerations. Rest of the document ingestion microservice can be treated as sample reference implementation.
 
 3. **Chat Q&A backend microservice**:
-   - **What it is**: The Chat Q&A backend microservice is a LangChain based implementation of Chat Q&A RAG pipeline providing required handling of the user queries.
+   - **What it is**: The Chat Q&A backend microservice is a LangChain based implementation of the Chat Q&A RAG pipeline providing required handling of the user queries.
    - **How it’s used**: A `streamlog` REST API endpoint is provided which is used by the UI front end to send user queries and trigger the RAG pipeline.
    - **Benefits**: The microservice provides a reference of how LangChain framework is used to implement Chat Q&A using Intel Edge AI inference microservices.
 
@@ -79,7 +79,7 @@ The application flow is illustrated in the flow diagram below. The diagram shows
 
 ## Extensibility
 
-The Chat Q&A Sample Application is designed with modularity in mind, allowing developers to:
+The Chat Q&A sample application is designed with modularity in mind, allowing developers to:
 
 1. **Change inference microservices**:
    - The default option is OVMS for LLM and TEI for embeddings and reranker.
